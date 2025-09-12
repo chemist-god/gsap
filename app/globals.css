@@ -7,7 +7,8 @@
   src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
 }
 
-@theme {
+
+:root {
   --color-yellow: #e7d393;
   --color-white-100: #efefef;
   --font-sans: "Mona Sans", sans-serif;
@@ -24,35 +25,39 @@ body {
   overflow-x: hidden;
 }
 
-@utility flex-center {
-  @apply flex justify-center items-center;
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@utility col-center {
-  @apply flex flex-col justify-center items-center;
+.col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@utility abs-center {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@utility text-gradient {
+.text-gradient {
   background: linear-gradient(to bottom, #ffffff, #898989);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-@utility radial-gradient {
-  background: radial-gradient(
-      circle at center,
-      #434343 0%,
-      #000 50%,
-      transparent 100%
-  );
+.radial-gradient {
+  background: radial-gradient(circle at center, #434343 0%, #000 50%, transparent 100%);
 }
 
-@utility masked-img {
+.masked-img {
   mask-image: url("/images/mask-img.png");
   mask-repeat: no-repeat;
   mask-position: center;
