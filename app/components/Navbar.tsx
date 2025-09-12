@@ -1,9 +1,25 @@
-
+'use client';
 import React from "react";
 import { navLinks } from "../../constants";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 const Navbar = () => {
+    useGSAP(() => {
+        // GSAP animations can be added here
+        const navTween = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".navbar",
+                start: "botom top"
+        }
+        });
+
+        navTween.fromTo(".navbar", { backgroundColor: "transparent" }, {
+            backgroundColor: "#00000050", backgroundFilter: 'blur(10px)', duration: 1, ease: 'power1.inOut'
+        }); 
+    });
+
   return (
     <nav className="fixed z-50 w-full bg-black text-white py-5 px-5 flex flex-col md:flex-row md:justify-between items-center gap-5 container mx-auto">
         <div className="flex items-center gap-2">
